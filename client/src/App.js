@@ -32,7 +32,7 @@ export default class App extends Component {
     const request = {
       data: { country: this.state.country },
       method: "POST",
-      url: "http://localhost:8888/country"
+      url: "https://coronavirus-covid19.herokuapp.com/country"
     };
 
     axios(request)
