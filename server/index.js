@@ -40,7 +40,6 @@ if (cluster.isMaster) {
   });
 
   app.post("/country", async (req, res) => {
-    console.log("here");
     let country = req.body.country;
 
     const confirmcases = async country => {
