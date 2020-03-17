@@ -1,0 +1,71 @@
+{
+  "name": "spotifymin",
+  "version": "1.0.0",
+  "description": "A dashboard for getting information on COVID-19 cases in country",
+  "main": "server/index.js",
+  "homepage": "https://github.com/SupratikRulz/covid-19-reporter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SupratikRulz/covid-19-reporter.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "javascript",
+    "covid",
+    "coronavirus",
+    "covid-19",
+    "html",
+    "css",
+    "sass"
+  ],
+  "author": "Supratik Basu <mail.supratikbasu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SupratikRulz/covid-19-reporter/issues"
+  },
+  "scripts": {
+    "client:install": "cd client && yarn",
+    "client": "cd client && yarn start",
+    "server": "node server",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "node server",
+    "heroku-postbuild": "cd client/ && yarn && yarn install --production && yarn build"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "cookie-parser": "1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "~4.17.1",
+    "node-fetch": "2.6.0",
+    "querystring": "~0.2.0",
+    "request": "~2.88.0"
+  },
+  "devDependencies": {
+    "@upstatement/eslint-config": "^0.4.2",
+    "@upstatement/prettier-config": "^0.3.0",
+    "babel-eslint": "^10.0.1",
+    "concurrently": "^4.1.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  }
+}
