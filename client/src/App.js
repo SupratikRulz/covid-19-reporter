@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+
+import CountryDetails from "./components/CountryDetails";
+import Loader from "./components/Loader";
+
 import axios from "axios";
 
+import "loaders.css/src/animations/ball-scale-multiple.scss";
 import "./App.css";
 
 export default class App extends Component {
@@ -41,22 +46,43 @@ export default class App extends Component {
   }
 
   render() {
-    return this.state.loading ? (
-      "loading..."
-    ) : (
-      <div>
-        <h1>Covid - 19 Case Updates</h1>
-
-        <input
-          type="text"
-          placeholder="Enter Country Name (Eg: US)"
-          onChange={this.handleInputChange}
-          onKeyDown={this.handleEnter}
-        />
-        <button type="button" onClick={this.handleSearchClick}>
-          Search
-        </button>
-        {JSON.stringify(this.state.data, null, 2)}
+    return (
+      <div className="App">
+        <h1 className="mb5">Covid - 19 Live Updates</h1>
+        <div className="flex-center wrap mb5">
+          <input
+            type="text"
+            placeholder="Enter Country Name (Eg: US)"
+            onChange={this.handleInputChange}
+            onKeyDown={this.handleEnter}
+            value={this.state.country}
+            className="Search-Box"
+          />
+          <button
+            type="button"
+            onClick={this.handleSearchClick}
+            className="Search-Button"
+          >
+            Search
+          </button>
+        </div>
+        <div>
+          {this.state.loading ? (
+            <div className="Loader">
+              <Loader
+                type="ball-scale-multiple"
+                active
+                innerClassName="flex-center"
+                color="#DC143C"
+              />
+            </div>
+          ) : (
+            <CountryDetails
+              data={this.state.data}
+              country={this.state.country}
+            />
+          )}
+        </div>
       </div>
     );
   }

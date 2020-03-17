@@ -1,0 +1,18 @@
+.info-bar {
+  justify-content: space-between !important;
+  max-width: 240px;
+  margin: auto;
+}
+
+.info-bar p {
+  font-weight: bold;
+  margin: 0 2px;
+}
+
+.last-update {
+  margin-bottom: 24px;
+}
+
+.country-name {
+  font-weight: bold;
+}
