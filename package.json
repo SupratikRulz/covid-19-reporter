@@ -1,5 +1,5 @@
 {
-  "name": "spotifymin",
+  "name": "covid-19-reporter",
   "version": "1.0.0",
   "description": "A dashboard for getting information on COVID-19 cases in country",
   "main": "server/index.js",
