@@ -1,4 +1,4 @@
-[
+const countries = [
     {
         "id": "China",
         "label": "China"
@@ -632,7 +632,7 @@
         "label": "Nauru"
     },
     {
-        "id": "United States",
+        "id": "US",
         "label": "United States"
     },
     {
@@ -652,8 +652,8 @@
         "label": "South Africa"
     },
     {
-        "id": "South Korea",
-        "label": "South Korea"
+        "id": "Korea, South",
+        "label": "Korea, South"
     },
     {
         "id": "Saint Lucia",
@@ -666,10 +666,6 @@
     {
         "id": "DR Congo",
         "label": "DR Congo"
-    },
-    {
-        "id": "North Korea",
-        "label": "North Korea"
     },
     {
         "id": "Sri Lanka",
@@ -1088,11 +1084,7 @@
         "label": "KN"
     },
     {
-        "id": "North Korea",
-        "label": "KP"
-    },
-    {
-        "id": "South Korea",
+        "id": "Korea, South",
         "label": "KR"
     },
     {
@@ -1456,8 +1448,12 @@
         "label": "AE"
     },
     {
-        "id": "United States",
+        "id": "US",
         "label": "US"
+    },
+    {
+        "id": "US",
+        "label": "USA"
     },
     {
         "id": "Uruguay",
@@ -1496,3 +1492,5 @@
         "label": "ZW"
     }
 ]
+
+export { countries };
