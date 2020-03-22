@@ -107,7 +107,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <h1 className="mb5">Covid - 19 Live UpdonSuggestionSelectedates</h1>
+        <h1 className="mb5">Covid - 19 Live Updates</h1>
         <div className="flex-center wrap mb5">
           <Autosuggest
             suggestions={suggestions}
