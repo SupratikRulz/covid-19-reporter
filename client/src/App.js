@@ -10,6 +10,18 @@ import "./App.css";
 
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+const removeDuplicateID = suggestion => {
+  let newSuggestion = [];
+  let lookup = {};
+  for (let i in suggestion) {
+    lookup[suggestion[i]["id"]] = suggestion[i];
+  }
+
+  for (let i in lookup) {
+    newSuggestion.push(lookup[i]);
+  }
+  return newSuggestion;
+};
 const getSuggestions = value => {
   const escapedValue = escapeRegexCharacters(value.trim());
 
@@ -18,7 +30,7 @@ const getSuggestions = value => {
   }
   const regex = new RegExp("^" + escapedValue, "i");
   const suggestions = countries.filter(language => regex.test(language.label));
-  return suggestions;
+  return removeDuplicateID(suggestions);
 };
 export default class App extends Component {
   state = {
@@ -105,6 +117,7 @@ export default class App extends Component {
             renderSuggestion={this.renderSuggestion}
             onSuggestionSelected={this.onSuggestionSelected}
             inputProps={{
+              placeholder: "Enter Country Name (Eg: US)",
               value: country,
               onChange: (e, { newValue }) =>
                 this.setState({ country: newValue }),
