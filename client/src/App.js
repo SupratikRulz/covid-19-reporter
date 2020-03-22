@@ -1,11 +1,12 @@
-import React, { Component } from "react";
 import axios from "axios";
 import Autosuggest from "react-autosuggest";
-import "loaders.css/src/animations/ball-scale-multiple.scss";
-import "./App.css";
 import { countries } from "./components/CountryCompleter/countries";
 import CountryDetails from "./components/CountryDetails";
 import Loader from "./components/Loader";
+import React, { Component } from "react";
+
+import "loaders.css/src/animations/ball-scale-multiple.scss";
+import "./App.css";
 
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -80,16 +81,21 @@ export default class App extends Component {
     });
   };
 
+  onSuggestionSelected = async (e, selection) => {
+    await this.setState({ country: selection.suggestionValue });
+    this.getCovidInformation();
+  };
+
   componentDidMount() {
     this.getCovidInformation();
   }
 
   render() {
     const { country, suggestions } = this.state;
-   
+
     return (
       <div className="App">
-        <h1 className="mb5">Covid - 19 Live Updates</h1>
+        <h1 className="mb5">Covid - 19 Live UpdonSuggestionSelectedates</h1>
         <div className="flex-center wrap mb5">
           <Autosuggest
             suggestions={suggestions}
@@ -101,13 +107,15 @@ export default class App extends Component {
             inputProps={{
               value: country,
               onChange: (e, { newValue }) =>
-                this.setState({ country: newValue })
+                this.setState({ country: newValue }),
+              onKeyDown: this.handleEnter
             }}
           />
           <button
             type="button"
             onClick={this.handleSearchClick}
-            className="Search-Button">
+            className="Search-Button"
+          >
             Search
           </button>
         </div>

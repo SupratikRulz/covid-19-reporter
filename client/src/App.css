@@ -113,6 +113,7 @@
     margin-right: 0;
     margin-bottom: 12px;
   }
+
   .Search-Button {
     width: 100%;
   }
@@ -124,17 +125,23 @@
 
 .react-autosuggest__container {
   position: relative;
+  margin-right: 24px;
 }
 
 .react-autosuggest__input {
-  width: 240px;
-  height: 30px;
-  padding: 10px 20px;
-  font-family: Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  border: 1px solid #aaa;
+  padding: 11px 16px;
+  width: 100%;
+  line-height: 1.3;
+  min-width: 250px;
+  max-width: 420px;
+  font-size: 14px;
   border-radius: 4px;
+  border: solid 1px rgba(83, 91, 98, 0.25);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  color: #2f363f;
 }
 
 .react-autosuggest__input--focused {
@@ -185,4 +192,12 @@
   margin: 9px 20px;
   font-size: 12px;
   color: #777;
+}
+
+@media only screen and (max-width: 768px) {
+  .react-autosuggest__container {
+    margin-right: 0px !important;
+    width: 100%;
+    margin-bottom: 12px;
+  }
 }
